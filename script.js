@@ -1,4 +1,4 @@
-const apiKey = "3f250e6671872e4d7d4aa89b826d875d";
+const apiKey = "97571d5097118f221639e9794f1a7f84";
 const cityId = 82; //Lisbon
 const cuisineId = 83; //Seafood
 const url = `https://developers.zomato.com/api/v2.1/search?entity_id=${cityId}&entity_type=city&cuisines=${cuisineId}`;
@@ -8,6 +8,7 @@ const priceMedium = document.getElementById("mediumPrice");
 const priceHigh = document.getElementById("highPrice");
 const buttonFilter = document.getElementById("filterButton");
 const ratingButton = document.getElementById("rating-button");
+const ratingButtonImage = document.getElementById("thumbs");
 
 //Choosing euro sign/-s from average cost
 const priceSymbol = cost => {
@@ -110,13 +111,30 @@ fetch(url, {
       showRestaurants();
     };
 
+    let order = "low";
+
     //sort restaurants by aggregated rating
     const sortByRating = () => {
-      filteredList.sort(
-        (a, b) =>
-          b.restaurant.user_rating.aggregate_rating -
-          a.restaurant.user_rating.aggregate_rating
-      );
+      if (order === "low") {
+        order = "high";
+      } else {
+        order = "low";
+      }
+
+      if (order === "low") {
+        filteredList.sort(
+          (a, b) =>
+            b.restaurant.user_rating.aggregate_rating -
+            a.restaurant.user_rating.aggregate_rating
+        );
+      } else {
+        filteredList.sort(
+          (a, b) =>
+            a.restaurant.user_rating.aggregate_rating -
+            b.restaurant.user_rating.aggregate_rating
+        );
+      }
+
       showRestaurants();
     };
 
@@ -126,3 +144,11 @@ fetch(url, {
 
     showRestaurants();
   });
+
+//Image turns upsidedown when clicked
+
+const toggleImage = () => {
+  ratingButtonImage.classList.toggle("turn");
+};
+
+ratingButtonImage.onclick = toggleImage;

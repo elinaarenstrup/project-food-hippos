@@ -153,7 +153,11 @@ a {
   width: 50px; */
 }
 
-.rating-button img {
+.turn {
+  transform: rotate(180deg);
+}
+
+.thumbs {
   height: 30px;
 }
 
