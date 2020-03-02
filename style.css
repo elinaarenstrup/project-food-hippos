@@ -1,12 +1,15 @@
 body {
   font-family: Helvetica, sans-serif;
   margin: 0;
+  font-family: "Tajawal";
 }
 
 h1 {
   border-bottom: 1px solid #ececec;
   padding: 0 100px 20px 100px;
   text-align: center;
+  font-family: "Permanent Marker";
+  font-size: 45px;
 }
 
 h2 {
@@ -57,6 +60,7 @@ a {
 .filter button {
   border: 1px solid black;
   border-radius: 3px;
+  height: fit-content;
 }
 
 .filter p {
@@ -140,8 +144,10 @@ a {
   display: flex;
   flex-direction: column;
   margin-left: 10px;
-  padding-left: 10px;
   border-left: 1px solid #ececec;
+  border-right: 1px solid #ececec;
+  height: 100%;
+  justify-content: space-between;
 }
 
 .rating-container p {
@@ -159,6 +165,20 @@ a {
 
 .thumbs {
   height: 30px;
+}
+
+.reset {
+  height: fit-content;
+}
+
+.column-div {
+  display: flex;
+  align-items: baseline;
+}
+
+.column-div-buttons {
+  display: flex;
+  justify-content: space-between;
 }
 
 button:focus {
