@@ -1,4 +1,4 @@
-const apiKey = "3f250e6671872e4d7d4aa89b826d875d";
+const apiKey = "286a182ec14d494a705e1881058221ff";
 const cityId = 82; //Lisbon
 const cuisineId = 83; //Seafood
 const url = `https://developers.zomato.com/api/v2.1/search?entity_id=${cityId}&entity_type=city&cuisines=${cuisineId}`;
