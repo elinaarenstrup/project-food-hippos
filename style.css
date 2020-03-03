@@ -161,6 +161,7 @@ a {
 
 .turn {
   transform: rotate(180deg);
+  transition-duration: 0.5s;
 }
 
 .thumbs {

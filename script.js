@@ -10,6 +10,11 @@ const buttonFilter = document.getElementById("filterButton");
 const ratingButton = document.getElementById("rating-button");
 const ratingButtonImage = document.getElementById("thumbs");
 
+//Image turns upsidedown when clicked
+const toggleImage = () => {
+  ratingButtonImage.classList.toggle("turn");
+};
+
 //Choosing euro sign/-s from average cost
 const priceSymbol = cost => {
   if (cost <= 35) {
@@ -40,16 +45,14 @@ const smileIcon = ratingScore => {
 };
 
 //Show if table booking is available or not
-const bookTable = "Book";
 const noTableBooking = "";
 
 const tableBooking = booking => {
   if (booking === 1) {
-    booking = bookTable;
+    return `<button class="booking-button" id="booking-button">BOOK</button>`;
   } else {
-    booking = noTableBooking;
+    return noTableBooking;
   }
-  return booking;
 };
 
 //Fetches data from API
@@ -77,9 +80,7 @@ fetch(url, {
         <h3>${resto.restaurant.name}</h3> 
         <div class="b-a-container">
         <p class="address">${resto.restaurant.location.address}</p>
-        <button class="booking-button" id="booking-button">${tableBooking(
-          resto.restaurant.has_table_booking
-        )}</button>
+        ${tableBooking(resto.restaurant.has_table_booking)}
         </div>
         <br>
         <p class="average-cost">${priceSymbol(
@@ -141,14 +142,7 @@ fetch(url, {
     //buttons to call filter and sort functions
     buttonFilter.addEventListener("click", filterPrice);
     ratingButton.addEventListener("click", sortByRating);
+    ratingButton.addEventListener("click", toggleImage);
 
     showRestaurants();
   });
-
-//Image turns upsidedown when clicked
-
-const toggleImage = () => {
-  ratingButtonImage.classList.toggle("turn");
-};
-
-ratingButtonImage.onclick = toggleImage;
