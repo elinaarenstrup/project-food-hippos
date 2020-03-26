@@ -12,3 +12,6 @@ JavaScript
 API
 Practice working as a real team using GitHub 
 Mob programming
+
+# View it live
+https://seafood-lisbon.netlify.com/
